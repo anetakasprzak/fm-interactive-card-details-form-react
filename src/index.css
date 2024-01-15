@@ -118,6 +118,7 @@ body {
   padding: 1.1rem 0rem 1.1rem 1.6rem;
   border-radius: 8px;
   border: 1px solid #dfdee0;
+  outline: none;
 }
 
 .input::placeholder {
@@ -163,6 +164,12 @@ body {
   padding: 1.5rem 12.9rem 1.5rem 12.9rem;
   font-size: 1.8rem;
   width: 32.7rem;
+}
+
+.input__error {
+  font-size: 1.2rem;
+  color: #ff5050;
+  text-wrap: nowrap;
 }
 
 /*************** THANK YOU ***************/

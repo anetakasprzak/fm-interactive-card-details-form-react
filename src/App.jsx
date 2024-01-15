@@ -10,7 +10,7 @@ export default function App() {
   const [cardNumber, setCardNumber] = useState("");
   const [expireMonth, setExpireMonth] = useState("");
   const [expireYear, setExpireYear] = useState("");
-  const [cvc, setCvc] = useState();
+  const [cvc, setCvc] = useState("");
 
   return (
     <div className="wrapper">
@@ -84,6 +84,7 @@ function Form({
       expireYear: "",
       cvc: "",
     },
+    mode: "onChange",
   });
 
   const onSubmit = (data) => {
@@ -92,7 +93,6 @@ function Form({
     setExpireMonth(data.expireMonth);
     setExpireYear(data.expireYear);
     setCvc(data.cvc);
-
     setShowThankyou(true);
   };
 
@@ -102,6 +102,7 @@ function Form({
         <div className="input-control">
           <label className="input__label">Cardholder Name</label>
           <input
+            style={errors.fullName && { outline: `1px solid #ff5050` }}
             className="input"
             type="text"
             placeholder="e.g. Jane Appleseed"
@@ -115,10 +116,11 @@ function Form({
         <div className="input-control">
           <label className="input__label">Card number</label>
           <input
+            style={errors.cardNumber && { outline: `1px solid #ff5050` }}
             className="input"
             type="number"
             placeholder="e.g. 1234 5678 9123 0000"
-            {...register("cardNumber", { required: true })}
+            {...register("cardNumber", { required: true, maxLength: 16 })}
           />
           {errors.cardNumber && (
             <span className="input__error">Wrong format, numbers only</span>
@@ -130,31 +132,33 @@ function Form({
             <label className="input__label">Exp. Date (MM/YY)</label>
             <div className="input__date">
               <input
+                style={errors.expireMonth && { outline: `1px solid #ff5050` }}
                 className="input input--small"
                 type="number"
                 placeholder="MM"
                 {...register("expireMonth", { required: true })}
               />
               <input
+                style={errors.expireYear && { outline: `1px solid #ff5050` }}
                 className="input input--small"
                 type="number"
                 placeholder="YY"
                 {...register("expireYear", { required: true })}
               />
             </div>
-            {errors.expireMonth ||
-              (errors.expireYear && (
-                <span className="input__error">Cant be blank</span>
-              ))}
+            {(errors.expireMonth || errors.expireYear) && (
+              <span className="input__error">Cant be blank</span>
+            )}
           </div>
 
           <div className="input-control input--cvc">
             <label className="input__label">CVC</label>
             <input
+              style={errors.cvc && { outline: `1px solid #ff5050` }}
               className="input input--cvc-fix"
               type="number"
               placeholder="e.g. 123"
-              {...register("cvc", { required: true })}
+              {...register("cvc", { required: true, maxLength: 3 })}
             />
             {errors.cvc && <span className="input__error">Cant be blank</span>}
           </div>
