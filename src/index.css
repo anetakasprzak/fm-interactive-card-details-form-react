@@ -26,8 +26,8 @@ body {
   background-image: url(../public/images/bg-main-mobile.png);
   background-repeat: no-repeat;
   width: 37.5rem;
-  padding: 3.2rem 1.6rem 0 1.7rem;
-  height: 100vh;
+  padding: 3.2rem 2.4rem 4.5rem 1.7rem;
+  height: auto;
 }
 
 .cards__box {
@@ -106,7 +106,30 @@ body {
 /*************** FORM ***************/
 
 .form__box {
-  padding-top: 30rem;
+  padding-top: 29rem;
+  padding-left: 0.7rem;
+  width: 32.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.input {
+  padding: 1.1rem 0rem 1.1rem 1.6rem;
+  border-radius: 8px;
+  border: 1px solid #dfdee0;
+}
+
+.input::placeholder {
+  opacity: 0.25;
+  font-size: 1.8rem;
+}
+
+.input__label {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin-bottom: 0.9rem;
 }
 
 .input-control {
@@ -121,6 +144,53 @@ body {
 .input__date {
   display: flex;
   flex-direction: row;
+  gap: 0.8rem;
+}
+
+.input--small {
+  width: 7.2rem;
+}
+
+.input--cvc {
+  width: 16.4rem;
+  margin-left: 1.1rem;
+}
+
+.btn {
+  border-radius: 0.8rem;
+  background-color: #21092f;
+  color: #fff;
+  padding: 1.5rem 12.9rem 1.5rem 12.9rem;
+  font-size: 1.8rem;
+  width: 32.7rem;
+}
+
+/*************** THANK YOU ***************/
+
+.thankyou__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  padding-top: 29rem;
+}
+
+.thankyou__img {
+  width: 8rem;
+  height: 8rem;
+  margin-bottom: 1.9rem;
+}
+
+.thankyou__heading {
+  font-size: 2.8rem;
+  letter-spacing: 3.422px;
+  text-transform: uppercase;
+}
+
+.thankyou__text {
+  margin-bottom: 3.2rem;
+  color: #8f8694;
 }
 
 /****************************************************/
@@ -135,7 +205,6 @@ body {
     background-repeat: no-repeat;
     background-position: left;
     display: grid;
-    /* place-items: center; */
   }
 
   .card {
@@ -190,4 +259,56 @@ body {
   }
 
   /*************** FORM ***************/
+
+  .test {
+    width: 38.1rem;
+  }
+
+  .form__box {
+    padding-top: 25rem;
+    padding-left: 83.2rem;
+    width: 38.1rem;
+    gap: 2.6rem;
+  }
+
+  .input {
+    padding: 1.1rem 0rem 1.1rem 1.6rem;
+    width: 38.1rem;
+  }
+
+  .input__label {
+    text-wrap: nowrap;
+  }
+
+  .input__date {
+    gap: 1rem;
+  }
+
+  .input--small {
+    width: 8rem;
+  }
+
+  .input--cvc {
+    width: 19.1rem;
+    margin-left: 2rem;
+  }
+
+  .input--cvc-fix {
+    width: 19.1rem;
+  }
+
+  .btn {
+    width: 38.1rem;
+  }
+
+  /*************** THANK YOU - DESKTOP ***************/
+
+  .thankyou__box {
+    align-self: center;
+    justify-content: center;
+    padding-left: 102.2rem;
+    width: 38.1rem;
+    padding-top: 25rem;
+    text-wrap: nowrap;
+  }
 }
