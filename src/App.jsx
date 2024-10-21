@@ -197,5 +197,3 @@ function ThankYou({ setShowThankyou, handleClearCard }) {
     </section>
   );
 }
-
-/*   Continue */
