@@ -12,6 +12,14 @@ export default function App() {
   const [expireYear, setExpireYear] = useState("");
   const [cvc, setCvc] = useState("");
 
+  const handleClearCard = () => {
+    setFullName("");
+    setCardNumber("");
+    setExpireMonth("");
+    setExpireYear("");
+    setCvc("");
+  };
+
   return (
     <div className="wrapper">
       <div className="component">
@@ -20,13 +28,10 @@ export default function App() {
             <div className="card__front-position">
               <div className="card--front__box">
                 <img
-                  src="../public/images/card-logo.svg"
+                  src="/images/card-logo.svg"
                   className="card--front__logo"
                 />
-                <img
-                  src="../public/images/bg-card-front.png"
-                  className="card"
-                />
+                <img src="/images/bg-card-front.png" className="card" />
                 <div className="card--front__text-box">
                   <p className="card__number">
                     {cardNumber || `0000 0000 0000 0000`}
@@ -41,7 +46,7 @@ export default function App() {
 
             <div className="card__back-position">
               <div className="card--back__box">
-                <img src="../public/images/bg-card-back.png" className="card" />
+                <img src="/images/bg-card-back.png" className="card" />
                 <p className="back__card-cvc">{cvc || `000`}</p>
               </div>
             </div>
@@ -57,7 +62,12 @@ export default function App() {
               setCvc={setCvc}
             />
           )}
-          {showThankyou && <ThankYou setShowThankyou={setShowThankyou} />}
+          {showThankyou && (
+            <ThankYou
+              setShowThankyou={setShowThankyou}
+              handleClearCard={handleClearCard}
+            />
+          )}
         </main>
       </div>
     </div>
@@ -169,13 +179,19 @@ function Form({
   );
 }
 
-function ThankYou({ setShowThankyou }) {
+function ThankYou({ setShowThankyou, handleClearCard }) {
   return (
     <section className="thankyou__box">
-      <img src="../public/images/icon-complete.svg" className="thankyou__img" />
+      <img src="/images/icon-complete.svg" className="thankyou__img" />
       <h2 className="thankyou__heading">Thank you!</h2>
       <p className="thankyou__text">We&apos;ve added your card details</p>
-      <button onClick={() => setShowThankyou(false)} className="btn">
+      <button
+        onClick={() => {
+          setShowThankyou(false);
+          handleClearCard();
+        }}
+        className="btn"
+      >
         Continue
       </button>
     </section>
